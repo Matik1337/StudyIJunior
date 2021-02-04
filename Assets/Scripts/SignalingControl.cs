@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SignalingControl : MonoBehaviour
 {
     private AudioSource _audioSource;
     private float _volume;
     
-    private void Start()
+    private void Awake()
     {
-        _audioSource = gameObject.GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void SwichSignalState(bool isSignalPlaying)

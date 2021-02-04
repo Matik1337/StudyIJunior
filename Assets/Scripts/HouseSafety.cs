@@ -7,9 +7,10 @@ public class HouseSafety : MonoBehaviour
 {
     private SignalingControl _signalingControl;
     private bool _isSignalPlaying;
-    private void Start()
+    
+    private void Awake()
     {
-        _signalingControl = gameObject.GetComponentInChildren<SignalingControl>();
+        _signalingControl = GetComponentInChildren<SignalingControl>();
     }
 
     private void OnTriggerEnter(Collider other)
