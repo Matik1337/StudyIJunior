@@ -6,15 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody _rb;
+    private Rigidbody _rigidbody;
     
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        _rb.velocity = Vector3.left;
+        _rigidbody.velocity = Vector3.left;
     }
 }

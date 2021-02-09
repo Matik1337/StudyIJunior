@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class HouseSafety : MonoBehaviour
 {
-    private SignalingControl _signalingControl;
+    private SignalingSwither _signalingControl;
     private bool _isSignalPlaying;
     
     private void Awake()
     {
-        _signalingControl = GetComponentInChildren<SignalingControl>();
+        _signalingControl = GetComponentInChildren<SignalingSwither>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        PlayerMovement playerMovement;
+        
+        if (other.gameObject.TryGetComponent(out playerMovement))
         {
             _isSignalPlaying = true;
             _signalingControl.SwichSignalState(_isSignalPlaying);
@@ -24,7 +26,9 @@ public class HouseSafety : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        PlayerMovement playerMovement;
+        
+        if (other.gameObject.TryGetComponent(out playerMovement))
         {
             _isSignalPlaying = false;
             _signalingControl.SwichSignalState(_isSignalPlaying);        

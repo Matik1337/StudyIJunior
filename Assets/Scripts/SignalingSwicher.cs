@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SignalingControl : MonoBehaviour
+public class SignalingSwither : MonoBehaviour
 {
     private AudioSource _audioSource;
     private float _volume;
