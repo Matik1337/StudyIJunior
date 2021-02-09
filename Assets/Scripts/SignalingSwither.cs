@@ -33,7 +33,7 @@ public class SignalingSwither : MonoBehaviour
         while (_volume < 1)
         {
             _audioSource.volume = _volume;
-            _volume += Time.deltaTime / 4;
+            _volume = Mathf.MoveTowards(_volume, 1, Time.deltaTime);
             
             yield return null;
         }
@@ -44,7 +44,7 @@ public class SignalingSwither : MonoBehaviour
         while (_volume > 0)
         {
             _audioSource.volume = _volume;
-            _volume -= Time.deltaTime / 4;
+            _volume = Mathf.MoveTowards(_volume, 0, Time.deltaTime);
             
             yield return null;
         }
